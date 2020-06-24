@@ -29,7 +29,7 @@ public class Movie{
         return movies;
     }
     public String getPosterPath() {
-        return String.format("https://image.tmdb.org/t/p/w342/6bCplVkhowCjTHXWv49UjRPn0eK.jpg/w342/%s"
+        return String.format("https://image.tmdb.org/t/p/w342/%s"
                 ,posterPath );
     }
 
