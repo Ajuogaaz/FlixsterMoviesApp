@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView rvMovies = findViewById(R.id.rvMovies);
         movies = new ArrayList<>();
         //Create the adapter
-        MovieAdapater movieAdapater =new  MovieAdapater(this, movies);
+        final MovieAdapater movieAdapater =new  MovieAdapater(this, movies);
 
         // Set the adapter on the recycle view
         rvMovies.setAdapter(movieAdapater);
@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
                     JSONArray results = jsonObject.getJSONArray("results");
                     Log.i(TAG, "Results"+ results.toString());
                     movies.addAll(Movie.fromJsonArray(results));
+                    movieAdapater.notifyDataSetChanged();
                     Log.i(TAG, "Movies"+ movies.size());
                 } catch (JSONException e) {
                     Log.e(TAG, "Hit Json exception, e");
