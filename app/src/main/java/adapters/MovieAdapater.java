@@ -1,0 +1,63 @@
+package adapters;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.flistermovieapp.R;
+
+import java.util.List;
+
+import models.Movie;
+
+public class MovieAdapater extends RecyclerView.Adapter<MovieAdapater.ViewHolder> {
+
+    Context context;
+    List<Movie> movies;
+
+    public MovieAdapater(Context context, List<Movie> movies) {
+        this.context = context;
+        this.movies = movies;
+    }
+
+    //Usually involves inflating the layout from XML and returning the holder
+    @NonNull
+    @Override
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View movieView = LayoutInflater.from(context).inflate(R.layout.item_movie, parent,false);
+        return null;
+    }
+
+    //Involves populating the into the item through the holder
+    @Override
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+
+    }
+
+    //Returns the total items in the list
+    @Override
+    public int getItemCount() {
+        return 0;
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder {
+
+        TextView tvTitle;
+        TextView tvOverview;
+        TextView ivPoster;
+
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+            tvTitle = itemView.findViewById(R.id.tvTitle);
+            tvOverview = itemView.findViewById(R.id.tvOverview);
+            ivPoster = itemView.findViewById(R.id.ivPoster);
+
+
+        }
+    }
+}
