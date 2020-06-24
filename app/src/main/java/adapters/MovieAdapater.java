@@ -30,19 +30,24 @@ public class MovieAdapater extends RecyclerView.Adapter<MovieAdapater.ViewHolder
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View movieView = LayoutInflater.from(context).inflate(R.layout.item_movie, parent,false);
-        return null;
+        return  new ViewHolder(movieView);
     }
 
-    //Involves populating the into the item through the holder
+    //Involves populating the data into the item through the holder
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        //Get the movie at the passed position
+        Movie movie = movies.get(position);
+
+        //Bind the movie data into the View holder
+        holder.bind(movie);
 
     }
 
     //Returns the total items in the list
     @Override
     public int getItemCount() {
-        return 0;
+        return movies.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -56,6 +61,13 @@ public class MovieAdapater extends RecyclerView.Adapter<MovieAdapater.ViewHolder
             tvTitle = itemView.findViewById(R.id.tvTitle);
             tvOverview = itemView.findViewById(R.id.tvOverview);
             ivPoster = itemView.findViewById(R.id.ivPoster);
+
+
+        }
+
+        public void bind(Movie movie) {
+            tvTitle.setText(movie.getTitle());
+            tvOverview.setText(movie.getOverview());
 
 
         }
