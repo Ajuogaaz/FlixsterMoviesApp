@@ -35,9 +35,10 @@ public class MainActivity extends AppCompatActivity {
                 JSONObject jsonObject  = json.jsonObject;
                 try {
                     JSONArray results = jsonObject.getJSONArray("results");
+                    Log.i(TAG, "Results"+ results.toString());
                 } catch (JSONException e) {
                     Log.e(TAG, "Hit Json exception, e");
-                    e.printStackTrace();
+
                 }
             }
 
