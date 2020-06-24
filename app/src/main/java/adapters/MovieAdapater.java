@@ -4,11 +4,13 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.flistermovieapp.R;
 
 import java.util.List;
@@ -54,7 +56,7 @@ public class MovieAdapater extends RecyclerView.Adapter<MovieAdapater.ViewHolder
 
         TextView tvTitle;
         TextView tvOverview;
-        TextView ivPoster;
+        ImageView ivPoster;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -68,7 +70,7 @@ public class MovieAdapater extends RecyclerView.Adapter<MovieAdapater.ViewHolder
         public void bind(Movie movie) {
             tvTitle.setText(movie.getTitle());
             tvOverview.setText(movie.getOverview());
-
+            Glide.with(context).load(movie.getPosterPath()).into(ivPoster);
 
         }
     }
