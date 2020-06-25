@@ -2,6 +2,7 @@ package adapters;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.util.Log;
@@ -9,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.flistermovieapp.R;
 
 import org.parceler.Parcels;
@@ -21,7 +23,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
     TextView tvTitle;
     TextView tvOverview;
     RatingBar rbVoteAverage;
-    ImageView ivPoster;
+    //ImageView ivPoster;
     TextView Rdate;
 
 
@@ -31,9 +33,29 @@ public class MovieDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_movie_details);
 
         // Unwrap the movie sent via intent
-        movie = (Movie) Parcels.unwrap(getIntent().getParcelableExtra(Movie.class.getSimpleName()));
+        //movie = Parcels.unwrap(getIntent().getParcelableExtra(Movie.class.getSimpleName()));
 
         //Log.d("MovieDetailsActivity", String.format("Showing Details for %s", movie.getTitle()));
+        tvTitle = findViewById(R.id.tvTitle);
+        rbVoteAverage = findViewById(R.id.rbVoteAverage);
+        tvOverview = findViewById(R.id.tvOverview);
+        //ivPoster = findViewById(R.id.ivPoster);
+        Rdate = findViewById(R.id.Rdate);
+
+        //Unwrap the movie parsed in via parcel using its simple name as key
+        movie = Parcels.unwrap(getIntent().getParcelableExtra(Movie.class.getSimpleName()));
+
+        tvTitle.setText(movie.getTitle());
+        tvOverview.setText(movie.getOverview());
+        Rdate.setText(movie.getReleased());
+
+        float voteAverage = movie.getVoteAverage().floatValue();
+        rbVoteAverage.setRating(voteAverage > 0 ? voteAverage / 2.0f : voteAverage);
+
+
+
+
+
 
 
 
