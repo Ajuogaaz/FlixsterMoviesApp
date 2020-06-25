@@ -3,6 +3,8 @@ package models;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.parceler.Parcel;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,12 +15,18 @@ public class Movie{
     String posterPath;
     String title;
     String overview;
+    String rating;
+    String released;
+
+    public Movie() {};
 
     public Movie(JSONObject jsonObject) throws JSONException {
         backdropPath = jsonObject.getString("backdrop_path");
         posterPath = jsonObject.getString("poster_path");
         title = jsonObject.getString("title");
         overview = jsonObject.getString("overview");
+        rating = jsonObject.getString("vote_average");
+        released = jsonObject.getString("release_date");
     }
 
 
@@ -39,6 +47,13 @@ public class Movie{
         return String.format("https://image.tmdb.org/t/p/w342/%s"
                 ,backdropPath );
     }
+
+    public String getRating(){
+        return rating;
+    }
+
+    public String getReleased(){ return released; }
+
 
     public String getTitle() {
         return title;
