@@ -15,6 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.flistermovieapp.R;
 
+import org.parceler.Parcels;
+
 import java.util.List;
 
 import models.Movie;
@@ -84,7 +86,9 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
             //Make sure the position is valid and actually exists
             if(position != RecyclerView.NO_POSITION){
                 Movie movie = movies.get(position);
-                Intent intent = new Intent(context, details)
+                Intent intent = new Intent(context, MovieDetailsActivity.class);
+                //Serialize the movie using parcelar and use its short name as key
+                intent.putExtra(Movie.class.getSimpleName(), Parcels.wrap(movie));
             }
         }
 
