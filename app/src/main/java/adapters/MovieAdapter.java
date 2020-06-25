@@ -3,6 +3,7 @@ package adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,9 +23,6 @@ import java.util.List;
 import models.Movie;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> {
-
-
-
 
     Context context;
     List<Movie> movies;
@@ -72,12 +70,15 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
             tvOverview = itemView.findViewById(R.id.tvOverview);
             ivPoster = itemView.findViewById(R.id.ivPoster);
 
+            itemView.setOnClickListener(this);
+
 
         }
         //When the user clicks on the row Shows Movie Details for the selected
         @Override
         public void onClick(View view){
             //get item position
+            Log.d("MovieAdapter", "we got into click" );
             int position = getAdapterPosition();
 
             //Make sure the position is valid and actually exists

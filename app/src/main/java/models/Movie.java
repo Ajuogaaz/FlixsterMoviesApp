@@ -9,6 +9,7 @@ import org.parceler.Parcel;
 import java.util.ArrayList;
 import java.util.List;
 
+@Parcel
 public class Movie{
 
     String backdropPath;
