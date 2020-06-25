@@ -20,6 +20,7 @@ import models.Movie;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> {
 
+
     Context context;
     List<Movie> movies;
 
