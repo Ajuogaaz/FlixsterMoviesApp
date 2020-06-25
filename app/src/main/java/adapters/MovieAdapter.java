@@ -23,19 +23,16 @@ import models.Movie;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> {
 
-    public interface OnClickListener{
-        void onItemClicked(int position);
-    }
+
 
 
     Context context;
     List<Movie> movies;
-    OnClickListener onClickListener;
 
-    public MovieAdapter(Context context, List<Movie> movies, OnClickListener onClickListener) {
+    public MovieAdapter(Context context, List<Movie> movies) {
         this.context = context;
         this.movies = movies;
-        this.onClickListener = onClickListener;
+
     }
 
       //Usually involves inflating the layout from XML and returning the holder
