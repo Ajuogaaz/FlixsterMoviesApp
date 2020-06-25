@@ -16,8 +16,8 @@ public class Movie{
     String posterPath;
     String title;
     String overview;
-    String rating;
     String released;
+    Double voteAverage;
 
     public Movie() {};
 
@@ -26,8 +26,9 @@ public class Movie{
         posterPath = jsonObject.getString("poster_path");
         title = jsonObject.getString("title");
         overview = jsonObject.getString("overview");
-        rating = jsonObject.getString("vote_average");
+        voteAverage = jsonObject.getDouble("vote_average");
         released = jsonObject.getString("release_date");
+
     }
 
 
@@ -49,9 +50,7 @@ public class Movie{
                 ,backdropPath );
     }
 
-    public String getRating(){
-        return rating;
-    }
+    public Double getVoteAverage() {return voteAverage; }
 
     public String getReleased(){ return released; }
 
