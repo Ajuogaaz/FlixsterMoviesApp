@@ -18,12 +18,12 @@ import java.util.List;
 
 import models.Movie;
 
-public class MovieAdapater extends RecyclerView.Adapter<MovieAdapater.ViewHolder> {
+public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> {
 
     Context context;
     List<Movie> movies;
 
-    public MovieAdapater(Context context, List<Movie> movies) {
+    public MovieAdapter(Context context, List<Movie> movies) {
         this.context = context;
         this.movies = movies;
     }

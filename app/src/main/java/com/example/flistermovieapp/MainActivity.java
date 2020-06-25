@@ -17,7 +17,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-import adapters.MovieAdapater;
+import adapters.MovieAdapter;
 import models.Movie;
 import okhttp3.Headers;
 
@@ -37,10 +37,10 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView rvMovies = findViewById(R.id.rvMovies);
         movies = new ArrayList<>();
         //Create the adapter
-        final MovieAdapater movieAdapater =new  MovieAdapater(this, movies);
+        final MovieAdapter movieAdapter =new MovieAdapter(this, movies);
 
         // Set the adapter on the recycle view
-        rvMovies.setAdapter(movieAdapater);
+        rvMovies.setAdapter(movieAdapter);
 
         //Set a layout Manager on the recycle View
         rvMovies.setLayoutManager(new LinearLayoutManager(this));
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                     JSONArray results = jsonObject.getJSONArray("results");
                     Log.i(TAG, "Results"+ results.toString());
                     movies.addAll(Movie.fromJsonArray(results));
-                    movieAdapater.notifyDataSetChanged();
+                    movieAdapter.notifyDataSetChanged();
                     Log.i(TAG, "Movies"+ movies.size());
                 } catch (JSONException e) {
                     Log.e(TAG, "Hit Json exception, e");
