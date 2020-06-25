@@ -49,7 +49,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
         //Get the movie at the passed position
         Movie movie = movies.get(position);
 
-        //Bind the movie data into the View holder
+        //Bind the movie data into the View hold
         holder.bind(movie);
 
     }
