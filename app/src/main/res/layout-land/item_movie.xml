@@ -25,6 +25,7 @@
         android:layout_marginStart="5dp"
         android:layout_toEndOf="@+id/ivPoster"
         android:textSize="24sp"
+        android:textColor="@color/colorWhite"
         tools:text="@string/sampleTitle" />
 
     <TextView
@@ -34,6 +35,7 @@
         android:layout_below="@+id/tvTitle"
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
+        android:textColor="@color/colorWhite"
         android:layout_toEndOf="@+id/ivPoster"
         tools:text="@string/sampleOverview" />
 
