@@ -46,7 +46,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
         // Unwrap the movie sent via intent
         //movie = Parcels.unwrap(getIntent().getParcelableExtra(Movie.class.getSimpleName()));
 
-        //Log.d("MovieDetailsActivity", String.format("Showing Details for %s", movie.getTitle()));
+        //Log.i("MovieDetailsActivity", String.format("Showing Details for %s", movie.getTitle()));
         tvTitle = findViewById(R.id.tvTitle);
         rbVoteAverage = findViewById(R.id.rbVoteAverage);
         tvOverview = findViewById(R.id.tvOverview);
@@ -87,7 +87,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
         client.get(URL, new JsonHttpResponseHandler() {
                     @Override
                     public void onSuccess(int statusCode, Headers headers, JSON json) {
-                        Log.d("Movie", "onSuccess");
+                        Log.i("Movie", "onSuccess");
 
                         JSONObject jsonObject = json.jsonObject;
                         try {
