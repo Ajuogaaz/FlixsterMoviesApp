@@ -71,8 +71,8 @@ public class MovieDetailsActivity extends AppCompatActivity {
             imageUrl = movie.getBackdropPath();
             gofu = R.drawable.flicks_backdrop_placeholder;
         }else{
-            imageUrl = movie.getPosterPath();
-            gofu = R.drawable.hshdhdhdhd;
+            imageUrl = movie.getBackdropPath();
+            gofu = R.drawable.flicks_backdrop_placeholder;
         }
 
 
