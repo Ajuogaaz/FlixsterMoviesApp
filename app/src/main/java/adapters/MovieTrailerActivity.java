@@ -19,7 +19,7 @@ public class MovieTrailerActivity extends YouTubeBaseActivity {
         setContentView(R.layout.activity_movie_trailer);
 
         // temporary test video id -- TODO replace with movie trailer video id
-        final String videoId = "tKodtNFpzBA";
+        final String videoId = getIntent().getStringExtra("kes");
 
         // resolve the player view from the layout
         YouTubePlayerView playerView = findViewById(R.id.player);
@@ -31,6 +31,7 @@ public class MovieTrailerActivity extends YouTubeBaseActivity {
                                                 YouTubePlayer youTubePlayer, boolean b) {
                 // do any work here to cue video, play video, etc.
                 youTubePlayer.cueVideo(videoId);
+                youTubePlayer.setFullscreen(true);
             }
 
             @Override
