@@ -78,7 +78,6 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
         @Override
         public void onClick(View view){
             //get item position
-            Log.d("MovieAdapter", "we got into click" );
             int position = getAdapterPosition();
 
             //Make sure the position is valid and actually exists
