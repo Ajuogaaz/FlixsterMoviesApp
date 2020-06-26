@@ -22,7 +22,7 @@ public class MovieTrailerActivity extends YouTubeBaseActivity {
         final String videoId = "tKodtNFpzBA";
 
         // resolve the player view from the layout
-        YouTubePlayerView playerView = (YouTubePlayerView) findViewById(R.id.player);
+        YouTubePlayerView playerView = findViewById(R.id.player);
 
         // initialize with API key stored in secrets.xml
         playerView.initialize(getString(R.string.key), new YouTubePlayer.OnInitializedListener() {
@@ -39,5 +39,6 @@ public class MovieTrailerActivity extends YouTubeBaseActivity {
                 // log the error
                 Log.e("MovieTrailerActivity", "Error initializing YouTube player");
             }
+        });
     }
 }

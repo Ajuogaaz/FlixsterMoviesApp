@@ -18,6 +18,7 @@ public class Movie{
     String overview;
     String released;
     Double voteAverage;
+    int id;
 
     public Movie() {};
 
@@ -28,6 +29,7 @@ public class Movie{
         overview = jsonObject.getString("overview");
         voteAverage = jsonObject.getDouble("vote_average");
         released = jsonObject.getString("release_date");
+        id = jsonObject.getInt("id");
 
     }
 
