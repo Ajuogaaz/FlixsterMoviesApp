@@ -44,9 +44,6 @@ public class MovieDetailsActivity extends AppCompatActivity {
         setContentView(view);
 
 
-        //Log.i("MovieDetailsActivity", String.format("Showing Details for %s", movie.getTitle()));
-
-        //Unwrap the movie parsed in via parcel using its simple name as key
         movie = Parcels.unwrap(getIntent().getParcelableExtra(Movie.class.getSimpleName()));
 
         binding.tvTitle.setText(movie.getTitle());
