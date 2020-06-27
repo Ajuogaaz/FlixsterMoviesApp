@@ -55,15 +55,9 @@ public class MovieDetailsActivity extends AppCompatActivity {
 
         String imageUrl;
         int gofu;
-        //If phone is in landscape then we do imageUrl
 
-        if (this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
-            imageUrl = movie.getBackdropPath();
-            gofu = R.drawable.flicks_backdrop_placeholder;
-        }else{
-            imageUrl = movie.getBackdropPath();
-            gofu = R.drawable.flicks_backdrop_placeholder;
-        }
+        imageUrl = movie.getBackdropPath();
+        gofu = R.drawable.flicks_backdrop_placeholder;
 
 
         Glide.with(this)
