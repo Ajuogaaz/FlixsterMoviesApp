@@ -43,7 +43,6 @@ public class MovieDetailsActivity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
 
-        //setContentView(R.layout.activity_movie_details);
 
 
         // Unwrap the movie sent via intent
