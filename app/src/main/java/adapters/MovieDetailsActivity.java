@@ -18,6 +18,7 @@ import com.bumptech.glide.Glide;
 import com.codepath.asynchttpclient.AsyncHttpClient;
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
 import com.example.flistermovieapp.R;
+import com.example.flistermovieapp.databinding.ActivityMovieDetailsBinding;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -40,7 +41,14 @@ public class MovieDetailsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_movie_details);
+
+        ActivityMovieDetailsBinding binding = ActivityMovieDetailsBinding.inflate(getLayoutInflater());
+
+        // layout of activity is stored in a special property called root
+        View view = binding.getRoot();
+        setContentView(view);
+
+        //setContentView(R.layout.activity_movie_details);
 
 
         // Unwrap the movie sent via intent
