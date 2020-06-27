@@ -31,11 +31,6 @@ import okhttp3.Headers;
 public class MovieDetailsActivity extends AppCompatActivity {
 
     Movie movie;
-    /*TextView tvTitle;
-    TextView tvOverview;
-    RatingBar rbVoteAverage;
-    ImageView ivPoster; //Change this to thumbnail
-    TextView Rdate;*/
 
 
     @Override
