@@ -31,18 +31,18 @@ import okhttp3.Headers;
 public class MovieDetailsActivity extends AppCompatActivity {
 
     Movie movie;
-    TextView tvTitle;
+    /*TextView tvTitle;
     TextView tvOverview;
     RatingBar rbVoteAverage;
     ImageView ivPoster; //Change this to thumbnail
-    TextView Rdate;
+    TextView Rdate;*/
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        ActivityMovieDetailsBinding binding = ActivityMovieDetailsBinding.inflate(getLayoutInflater());
+        final ActivityMovieDetailsBinding binding = ActivityMovieDetailsBinding.inflate(getLayoutInflater());
 
         // layout of activity is stored in a special property called root
         View view = binding.getRoot();
@@ -55,21 +55,16 @@ public class MovieDetailsActivity extends AppCompatActivity {
         //movie = Parcels.unwrap(getIntent().getParcelableExtra(Movie.class.getSimpleName()));
 
         //Log.i("MovieDetailsActivity", String.format("Showing Details for %s", movie.getTitle()));
-        tvTitle = findViewById(R.id.tvTitle);
-        rbVoteAverage = findViewById(R.id.rbVoteAverage);
-        tvOverview = findViewById(R.id.tvOverview);
-        ivPoster = findViewById(R.id.ivPoster);
-        Rdate = findViewById(R.id.Rdate);
 
         //Unwrap the movie parsed in via parcel using its simple name as key
         movie = Parcels.unwrap(getIntent().getParcelableExtra(Movie.class.getSimpleName()));
 
-        tvTitle.setText(movie.getTitle());
-        tvOverview.setText(movie.getOverview());
-        Rdate.setText(movie.getReleased());
+        binding.tvTitle.setText(movie.getTitle());
+        binding.tvOverview.setText(movie.getOverview());
+        binding.Rdate.setText(movie.getReleased());
 
         float voteAverage = movie.getVoteAverage().floatValue();
-        rbVoteAverage.setRating(voteAverage > 0 ? voteAverage / 2.0f : voteAverage);
+        binding.rbVoteAverage.setRating(voteAverage > 0 ? voteAverage / 2.0f : voteAverage);
 
         String imageUrl;
         int gofu;
@@ -88,7 +83,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
                 .load(imageUrl)
                 .placeholder(gofu)
                 .error(gofu)
-                .into(ivPoster);
+                .into(binding.ivPoster);
 
         AsyncHttpClient client = new AsyncHttpClient();
         String URL = "https://api.themoviedb.org/3/movie/"+ movie.getId()+ "/videos?api_key=c622cdaa84b981fece025799de236e2b";
@@ -102,7 +97,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
 
                             final String youtubeKey = jsonObject.getJSONArray("results").getJSONObject(0).getString("key");
 
-                            ivPoster.setOnClickListener(new View.OnClickListener() {
+                            binding.ivPoster.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
                                     Toast.makeText(MovieDetailsActivity.this, "Testing", Toast.LENGTH_SHORT).show();
